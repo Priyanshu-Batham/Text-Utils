@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import  {useState}  from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,8 +7,12 @@ function App() {
 
   //remove {} from importing useState
   let [count, setCount] = useState(0);
-  let up = ()=> setCount(count+=1);
-  let down = ()=> setCount(count-=1);
+  let up = ()=>{
+    if(count<5) setCount(count += 1)
+  }
+  let down = ()=> {
+    if(count>0) setCount(count-=1)
+  }
 
 
   return (
