@@ -11,8 +11,6 @@ import Github, {getData} from './components/github/Github'
 import User from './components/user/User'
 
 
-//constructing the router
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element = {<Layout/>}>
