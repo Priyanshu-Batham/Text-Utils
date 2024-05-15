@@ -17,13 +17,11 @@ const Main = () => {
     <>
       <div className="container mt-5">
         <div className="mb-3">
-          <label htmlFor="exampleFormControlTextarea1" className="form-label">
-            Example textarea
-          </label>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
             rows="10"
+            placeholder="Enter Text Here"
             value={text}
             onChange={(e) => {
               setText(e.target.value);
@@ -47,7 +45,7 @@ const Main = () => {
 
         <h3>Text Summary</h3>
         <h5>No. of Characters: {text.length}</h5>
-        <h5>No. of Words: {text.split()}</h5>
+        <h5>No. of Words: {text?text.split(' ').length:0}</h5>
       </div>
     </>
   );
