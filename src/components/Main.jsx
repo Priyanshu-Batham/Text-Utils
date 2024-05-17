@@ -1,8 +1,19 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Main = (props) => {
   const [text, setText] = useState("");
+  let wordCount = useRef(0);
+
+  const updateText = (e)=>{
+    let freshText = e.target.value;
+    let arr = freshText.split(" ");
+    arr = arr.filter((word)=>{
+      return word !== "";
+    })
+    wordCount.current = arr.length;
+    setText(e.target.value);
+  }
 
   const toUpper = () => {
     let newText = text.toUpperCase();
@@ -23,6 +34,7 @@ const Main = (props) => {
   };
 
   const clear = ()=>{
+    wordCount.current = 0;
     setText('');
     props.setAlertMsg("Text Cleared")
     setTimeout(()=>{
@@ -48,9 +60,7 @@ const Main = (props) => {
             placeholder="Enter Text Here"
             value={text}
             style={{backgroundColor: `${props.mode==='light'?'white':'grey'}`, color: `${props.mode==='light'?'black':'white'}`}}
-            onChange={(e) => {
-              setText(e.target.value);
-            }}
+            onChange={updateText}
           >
           </textarea>
           <button
@@ -85,7 +95,7 @@ const Main = (props) => {
 
         <h3 className={`text-${props.mode==='dark'?'white':'dark'}`}>Text Summary</h3>
         <h5 className={`text-${props.mode==='dark'?'white':'dark'}`}>No. of Characters: {text.length}</h5>
-        <h5 className={`text-${props.mode==='dark'?'white':'dark'}`}>No. of Words: {text?text.split(' ').length:0}</h5>
+        <h5 className={`text-${props.mode==='dark'?'white':'dark'}`}>No. of Words: {wordCount.current}</h5>
       </div>
     </>
   );
