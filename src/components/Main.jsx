@@ -6,12 +6,8 @@ const Main = (props) => {
   let wordCount = useRef(0);
 
   const updateText = (e)=>{
-    let freshText = e.target.value;
-    let arr = freshText.split(" ");
-    arr = arr.filter((word)=>{
-      return word !== "";
-    })
-    wordCount.current = arr.length;
+    // my craziest line of code lmao
+    wordCount.current = e.target.value.split(" ").filter((word)=>word!=="").length;
     setText(e.target.value);
   }
 
