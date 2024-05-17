@@ -8,26 +8,34 @@ const Main = (props) => {
     let newText = text.toUpperCase();
     setText(newText);
     props.setAlertMsg("Text Converted to Uppercase")
-    setTimeout(props.setAlertMsg(null), 1000);
+    setTimeout(()=>{
+      props.setAlertMsg(null);
+    }, 1000);
   };
 
   const toLower = () => {
     let newText = text.toLowerCase();
     setText(newText);
     props.setAlertMsg("Text Converted to Lowercase")
-    setTimeout(props.setAlertMsg(null), 1000);
+    setTimeout(()=>{
+      props.setAlertMsg(null);
+    }, 1000);
   };
 
   const clear = ()=>{
     setText('');
     props.setAlertMsg("Text Cleared")
-    setTimeout(props.setAlertMsg(null), 1000);
+    setTimeout(()=>{
+      props.setAlertMsg(null);
+    }, 1000);
   }
 
   const copy = ()=>{
     window.navigator.clipboard.writeText(text);
     props.setAlertMsg("Text Copied to Clipboard")
-    setTimeout(props.setAlertMsg(null), 1000);
+    setTimeout(()=>{
+      props.setAlertMsg(null);
+    }, 1000);
   }
   return (
     <>

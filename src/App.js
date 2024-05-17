@@ -13,13 +13,17 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = 'black';
       setAlertMsg("Dark Mode Enabled")
-      // setTimeout(setAlertMsg(null), 1000);
+      setTimeout(()=>{
+        setAlertMsg(null);
+      }, 1000);
     }
     else{
       setMode('light');
       document.body.style.backgroundColor = 'white';
       setAlertMsg("Light Mode Enabled")
-      // setTimeout(setAlertMsg(null), 1000);
+      setTimeout(()=>{
+        setAlertMsg(null);
+      }, 1000);
     }
   }
   
