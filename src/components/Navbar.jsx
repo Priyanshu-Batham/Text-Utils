@@ -9,7 +9,7 @@ const Navbar = (props) => {
             {props.title}
           </a>
           <button
-            className="navbar-toggler"
+            class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -17,7 +17,19 @@ const Navbar = (props) => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill={props.mode==='light'?'black':'white'}
+              class="bi bi-list"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+              />
+            </svg>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -32,18 +44,21 @@ const Navbar = (props) => {
                 </a>
               </li>
             </ul>
-          </div>
-          <div className="form-check form-switch">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault"
-              onChange={props.toggle}
-            />
-            <label className="form-check-label text-primary" htmlFor="flexSwitchCheckDefault">
-              {props.mode==='dark'?'Dark':'Light'} Mode
-            </label>
+            <div className="form-check form-switch">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                onChange={props.toggle}
+              />
+              <label
+                className="form-check-label text-primary"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                {props.mode === "dark" ? "Dark" : "Light"} Mode
+              </label>
+            </div>
           </div>
         </div>
       </nav>
