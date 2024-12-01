@@ -12,39 +12,67 @@ const Main = (props) => {
   }
 
   const toUpper = () => {
+    if (text.trim() === "") {
+      props.setAlertMsg("Textbox is empty");
+      setTimeout(() => {
+        props.setAlertMsg(null);
+      }, 1000);
+      return;
+    }
     let newText = text.toUpperCase();
     setText(newText);
-    props.setAlertMsg("Text Converted to Uppercase")
-    setTimeout(()=>{
+    props.setAlertMsg("Text Converted to Uppercase");
+    setTimeout(() => {
       props.setAlertMsg(null);
     }, 1000);
   };
-
+  
   const toLower = () => {
+    if (text.trim() === "") {
+      props.setAlertMsg("Textbox is empty");
+      setTimeout(() => {
+        props.setAlertMsg(null);
+      }, 1000);
+      return;
+    }
     let newText = text.toLowerCase();
     setText(newText);
-    props.setAlertMsg("Text Converted to Lowercase")
-    setTimeout(()=>{
+    props.setAlertMsg("Text Converted to Lowercase");
+    setTimeout(() => {
       props.setAlertMsg(null);
     }, 1000);
   };
-
-  const clear = ()=>{
+  
+  const clear = () => {
+    if (text.trim() === "") {
+      props.setAlertMsg("Textbox is empty");
+      setTimeout(() => {
+        props.setAlertMsg(null);
+      }, 1000);
+      return;
+    }
     wordCount.current = 0;
     setText('');
-    props.setAlertMsg("Text Cleared")
-    setTimeout(()=>{
+    props.setAlertMsg("Text Cleared");
+    setTimeout(() => {
       props.setAlertMsg(null);
     }, 1000);
-  }
-
-  const copy = ()=>{
+  };
+  
+  const copy = () => {
+    if (text.trim() === "") {
+      props.setAlertMsg("Textbox is empty");
+      setTimeout(() => {
+        props.setAlertMsg(null);
+      }, 1000);
+      return;
+    }
     window.navigator.clipboard.writeText(text);
-    props.setAlertMsg("Text Copied to Clipboard")
-    setTimeout(()=>{
+    props.setAlertMsg("Text Copied to Clipboard");
+    setTimeout(() => {
       props.setAlertMsg(null);
     }, 1000);
-  }
+  };
   return (
     <>
       <div className={`container mt-5`}>
